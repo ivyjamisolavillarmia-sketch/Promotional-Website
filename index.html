@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Municipality of Impasug-ong | Bukidnon, Philippines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-deep: #1a3d2b;
+      --green-mid: #2e6b47;
+      --green-light: #4a9e6e;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #faf6ef;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-muted: #555;
+      --shadow: rgba(0,0,0,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ──────────── NAVBAR ──────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(26, 61, 43, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      transition: background 0.3s;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 44px; height: 44px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--green-deep);
+      flex-shrink: 0;
+    }
+
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .nav-title span {
+      display: block;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--gold-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(201,168,76,0.12);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: all 0.35s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--green-deep);
+      border-bottom: 2px solid var(--gold);
+      z-index: 999;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+
+    .mobile-menu.open {
+      max-height: 400px;
+      padding: 12px 0 20px;
+    }
+
+    .mobile-menu a {
+      display: block;
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 8%;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--gold); padding-left: calc(8% + 10px); }
+
+    /* ──────────── HERO ──────────── */
+    #home {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg, rgba(26,61,43,0.78) 0%, rgba(46,107,71,0.55) 50%, rgba(26,61,43,0.85) 100%),
+        url(municipality of impasug-ong.jpg) center/cover no-repeat;
+      transform: scale(1.04);
+      animation: slowZoom 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.10); }
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(26,61,43,0.55) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-deep);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 2px;
+      margin-bottom: 22px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-content .sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 36px;
+    }
+
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--green-deep);
+      padding: 14px 32px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.7);
+      color: var(--white);
+      padding: 12px 30px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.12);
+      transform: translateY(-2px);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-hint svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ──────────── SECTION BASE ──────────── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-deep);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+
+    .section-title em { font-style: italic; color: var(--green-mid); }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ──────────── ABOUT ──────────── */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-text { }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .stat-card {
+      background: var(--cream);
+      border-left: 4px solid var(--gold);
+      padding: 20px 18px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .stat-card .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green-deep);
+      line-height: 1;
+    }
+
+    .stat-card .lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+      box-shadow: 8px 12px 40px var(--shadow);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--green-deep);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 18px 22px;
+      border-radius: 6px;
+      line-height: 1.4;
+      box-shadow: 4px 6px 20px var(--shadow);
+      text-align: center;
+    }
+
+    /* ──────────── TOURISM ──────────── */
+    #tourism { background: var(--cream); }
+
+    .tourism-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .tourism-header .section-sub { margin: 0 auto; }
+
+    .places-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .place-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .place-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+    }
+
+    .place-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      display: block;
+    }
+
+    .place-img-placeholder {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .place-body { padding: 22px 24px; }
+
+    .place-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 8px;
+    }
+
+    .place-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 8px;
+    }
+
+    .place-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ──────────── CULTURE ──────────── */
+    #culture { background: var(--green-deep); }
+
+    #culture .section-title { color: var(--cream); }
+    #culture .section-title em { color: var(--gold-light); }
+    #culture .section-sub { color: rgba(255,255,255,0.7); }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+
+    .culture-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .culture-card:hover {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+    }
+
+    .culture-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
+
+    .culture-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .culture-card p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* ──────────── GOVERNMENT ──────────── */
+    #government { background: var(--white); }
+
+    .gov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+
+    .gov-officials { }
+
+    .official-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .official-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .official-info h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-deep);
+    }
+
+    .official-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .gov-services { }
+
+    .service-list { list-style: none; margin-top: 10px; }
+
+    .service-list li {
+      padding: 14px 18px;
+      background: var(--cream);
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .service-list li:hover {
+      background: #e8f0eb;
+      transform: translateX(4px);
+    }
+
+    .service-list li .svc-icon {
+      font-size: 1.3rem;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ──────────── CONTACT ──────────── */
+    #contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--green-deep);
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      font-size: 1.4rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .contact-item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .contact-item strong { color: var(--text-dark); display: block; margin-bottom: 2px; }
+
+    .contact-form { }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: 'Lato', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--green-mid); }
+
+    .form-group textarea { height: 120px; resize: vertical; }
+
+    .btn-submit {
+      background: var(--green-deep);
+      color: var(--white);
+      padding: 14px 36px;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+
+    .btn-submit:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+    .form-success {
+      display: none;
+      background: #e8f0eb;
+      border: 2px solid var(--green-mid);
+      border-radius: 6px;
+      padding: 18px 22px;
+      color: var(--green-deep);
+      font-weight: 700;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ──────────── FOOTER ──────────── */
+    footer {
+      background: var(--green-deep);
+      color: rgba(255,255,255,0.65);
+      padding: 50px 5% 24px;
+      border-top: 2px solid var(--gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto 36px;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p { font-size: 13.5px; line-height: 1.7; }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13.5px;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12.5px;
+    }
+
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    /* ──────────── RESPONSIVE ──────────── */
+    @media (max-width: 900px) {
+      .about-grid, .gov-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-badge { right: 0; bottom: -14px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      section { padding: 70px 5%; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      .about-stats { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav id="navbar">
+  <a href="#home" class="nav-brand">
+    <div class="nav-logo">I</div>
+    <div class="nav-title">
+      Impasug-ong
+      <span>Municipality · Bukidnon</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#tourism">Tourism</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#government">Government</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"       onclick="closeMenu()">Home</a>
+  <a href="#about"      onclick="closeMenu()">About</a>
+  <a href="#tourism"    onclick="closeMenu()">Tourism</a>
+  <a href="#culture"    onclick="closeMenu()">Culture</a>
+  <a href="#government" onclick="closeMenu()">Government</a>
+  <a href="#contact"    onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="home">
+  <div class="municipality ofo impasug-ong.jpg-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Bukidnon · Philippines</div>
+    <h1>Municipality of<br><em>Impasug-ong</em></h1>
+    <p class="sub">The Cool Mountain Retreat of Mindanao</p>
+    <div class="hero-btns">
+      <a href="#tourism" class="btn-primary">Explore Tourism</a>
+      <a href="#about"   class="btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About the Municipality</div>
+      <h2 class="section-title">Where the Cool<br><em>Highlands Meet</em><br>Warm Hospitality</h2>
+      <p class="section-sub">
+        Impasug-ong is a landlocked municipality in the province of Bukidnon, 
+        located in Northern Mindanao, Philippines. Sitting at an elevation above 
+        1,000 meters above sea level, it is known for its cool climate, 
+        vast pineapple plantations, and the indigenous Talaandig people.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card"><div class="num">1,039+</div><div class="lbl">Elevation (masl)</div></div>
+        <div class="stat-card"><div class="num">31</div><div class="lbl">Barangays</div></div>
+        <div class="stat-card"><div class="num">~85K</div><div class="lbl">Population</div></div>
+        <div class="stat-card"><div class="num">534 km²</div><div class="lbl">Land Area</div></div>
+      </div>
+    </div>
+    <div class="cool bukidnon.jpg">
+      <div style="width:100%;height:420px;background:linear-gradient(135deg,#2e6b47,#4a9e6e,#1a3d2b);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:5rem;box-shadow:8px 12px 40px rgba(0,0,0,0.15);">🌄</div>
+      <div class="about-badge">
+        Cool Climate<br>Mountain Town<br>🏔️ Bukidnon
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TOURISM ══════════ -->
+<section id="tourism">
+  <div class="tourism-header">
+    <div class="section-label">Discover</div>
+    <h2 class="section-title">Tourist Attractions</h2>
+    <p class="section-sub">From misty mountains to cultural landmarks — Impasug-ong offers experiences unlike anywhere else in Mindanao.</p>
+  </div>
+  <div class="places-grid">
+    <div class="place-card">
+      <div class="delmonte pianeapple plantation">🍍</div>
+      <div class="place-body">
+        <div class="place-tag">Agriculture Tourism</div>
+        <h3>Del Monte Pineapple Plantation</h3>
+        <p>One of the largest pineapple plantations in Asia, the iconic Del Monte farms stretch across the highlands of Impasug-ong, offering guided plantation tours.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="pulangui river.jpg">🌊</div>
+      <div class="place-body">
+        <div class="place-tag">Natural Attraction</div>
+        <h3>Pulangui River</h3>
+        <p>The Pulangui (Rio Grande de Mindanao) flows through the municipality, offering scenic views, fishing, and riverbank recreational activities for visitors.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="talaandig.jpg">🎭</div>
+      <div class="place-body">
+        <div class="place-tag">Cultural Heritage</div>
+        <h3>Talaandig Cultural Village</h3>
+        <p>Immerse yourself in the vibrant indigenous culture of the Talaandig people — known for their colorful artwork, rituals, music, and traditional crafts.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="mt kitanglad.jpg">🏔️</div>
+      <div class="place-body">
+        <div class="place-tag">Ecotourism</div>
+        <h3>Mt. Kitanglad Range</h3>
+        <p>Part of the Mt. Kitanglad Natural Park — a UNESCO Man and Biosphere Reserve, home to rare flora & fauna including the Philippine Eagle habitat.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="place-img-placeholder" style="background:linear-gradient(135deg,#2e6b47,#4a9e6e);">🌿</div>
+      <div class="place-body">
+        <div class="place-tag">Eco-Park</div>
+        <h3>Sungco Eco-Park</h3>
+        <p>A serene nature park featuring gardens, walking trails, and lush highland landscapes perfect for family outings and nature photography.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="place-img-placeholder" style="background:linear-gradient(135deg,#c9a84c,#1a3d2b);">⛺</div>
+      <div class="place-body">
+        <div class="place-tag">Adventure</div>
+        <h3>Camp Phillips</h3>
+        <p>A historic highland camp that now serves as a gateway community to the pineapple plantations, offering a cool climate retreat and local market experiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CULTURE ══════════ -->
+<section id="culture">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">Heritage & Traditions</div>
+    <h2 class="section-title">Our <em>Culture</em> & People</h2>
+    <p class="section-sub">Impasug-ong is home to the Talaandig — one of Mindanao's most culturally rich indigenous peoples, known for their art, music, and spiritual traditions.</p>
+    <div class="culture-grid">
+      <div class="culture-card">
+        <span class="culture-icon">🎨</span>
+        <h3>Talaandig Art</h3>
+        <p>Renowned for vibrant ethnic paintings depicting nature and ancestral spirits. Talaandig art has gained international recognition for its expressive storytelling.</p>
+      </div>
+      <div class="culture-card">
+        <span class="culture-icon">🎵</span>
+        <h3>Indigenous Music</h3>
+        <p>Traditional instruments like the kulintang, agong, and gimbal create the soulful soundscapes of Talaandig ceremonies and celebrations.</p>
+      </div>
+      <div class="culture-card">
+        <span class="culture-icon">💃</span>
+        <h3>Ritual Dances</h3>
+        <p>Sacred and festive dances are performed during harvest seasons and tribal ceremonies, each step carrying deep spiritual and cultural meaning.</p>
+      </div>
+      <div class="culture-card">
+        <span class="culture-icon">🌾</span>
+        <h3>Kaamulan Festival</h3>
+        <p>Impasug-ong participates in Bukidnon's famous Kaamulan Festival — a grand celebration of the 7 indigenous tribes of the province held every February.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GOVERNMENT ══════════ -->
+<section id="government">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">Local Government Unit</div>
+    <h2 class="section-title">Municipal <em>Government</em></h2>
+    <p class="section-sub">Serving the people of Impasug-ong with transparency, dedication, and commitment to progress.</p>
+
+    <div class="gov-grid">
+      <div class="gov-officials">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green-deep);margin-bottom:10px;">Local Officials</h3>
+
+        <div class="official-card">
+          <div class="official-avatar">M</div>
+          <div class="official-info">
+            <h4>Municipal Mayor</h4>
+            <p>Office of the Mayor</p>
+          </div>
+        </div>
+        <div class="official-card">
+          <div class="official-avatar">VM</div>
+          <div class="official-info">
+            <h4>Vice Mayor</h4>
+            <p>Office of the Vice Mayor</p>
+          </div>
+        </div>
+        <div class="official-card">
+          <div class="official-avatar">SB</div>
+          <div class="official-info">
+            <h4>Sangguniang Bayan Members</h4>
+            <p>Municipal Legislative Council</p>
+          </div>
+        </div>
+        <div class="official-card">
+          <div class="official-avatar">M</div>
+          <div class="official-info">
+            <h4>Municipal Administrator</h4>
+            <p>Administrative Office</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gov-services">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green-deep);margin-bottom:10px;">Municipal Services</h3>
+        <ul class="service-list">
+          <li><span class="svc-icon">📋</span> Business Permit & Licensing</li>
+          <li><span class="svc-icon">🏥</span> Municipal Health Services</li>
+          <li><span class="svc-icon">📚</span> Public Education Programs</li>
+          <li><span class="svc-icon">🌱</span> Agriculture & Livelihood</li>
+          <li><span class="svc-icon">🏗️</span> Infrastructure & Engineering</li>
+          <li><span class="svc-icon">🤝</span> Social Welfare & Development</li>
+          <li><span class="svc-icon">🌿</span> Environment & Natural Resources</li>
+          <li><span class="svc-icon">💧</span> Water & Sanitation Services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact <em>Us</em></h2>
+    <p class="section-sub">Have inquiries, feedback, or concerns? Reach out to the Municipal Government of Impasug-ong.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Municipal Hall</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <p><strong>Address</strong>Municipal Hall, Poblacion, Impasug-ong, Bukidnon, Philippines</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <p><strong>Telephone</strong>(088) LGU-IMPASUGONG</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <p><strong>Office Hours</strong>Monday – Friday: 8:00 AM – 5:00 PM<br>Closed on weekends & holidays</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <p><strong>Online Services</strong>This website is the official online presence of the Municipality of Impasug-ong.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--green-deep);margin-bottom:20px;">Send a Message</h3>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="fname" placeholder="Your full name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="femail" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Subject / Concern</label>
+          <select id="fsubject">
+            <option value="">— Select a concern —</option>
+            <option>Tourism Inquiry</option>
+            <option>Business Permit</option>
+            <option>Government Services</option>
+            <option>Feedback / Suggestion</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="fmessage" placeholder="Write your message here…"></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">Send Message</button>
+        <div class="form-success" id="formSuccess">
+          ✅ Message sent! We will get back to you within 2–3 business days.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Municipality of Impasug-ong</h3>
+      <p>The cool highland municipality of Bukidnon — proud home of the Talaandig people, Del Monte pineapple plains, and the majestic Mt. Kitanglad Range.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#tourism">Tourism</a>
+      <a href="#culture">Culture</a>
+      <a href="#government">Government</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#government">Municipal Services</a>
+      <a href="#tourism">Tourist Spots</a>
+      <a href="#culture">Kaamulan Festival</a>
+      <a href="#about">Barangay Directory</a>
+      <a href="#contact">Report a Concern</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Municipality of Impasug-ong, Bukidnon. All rights reserved.</span>
+    <span>Built for the people of Impasug-ong 🌿</span>
+  </div>
+</footer>
+
+<script>
+  // ── Hamburger toggle ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // ── Close mobile menu on outside click ──
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // ── Smooth active nav highlight ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 90) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // ── Contact form mock submit ──
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const msg = document.getElementById('fmessage').value.trim();
+    if (!name || !email || !msg) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('fname').value = '';
+    document.getElementById('femail').value = '';
+    document.getElementById('fsubject').value = '';
+    document.getElementById('fmessage').value = '';
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'none';
+    }, 6000);
+  }
+</script>
+</body>
+</html>
